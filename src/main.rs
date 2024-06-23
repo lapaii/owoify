@@ -41,15 +41,17 @@ fn main() {
 
     args.remove(0); // removes the location of the binary from args
 
-    if args.is_empty() || args[0].to_lowercase() == "--h" || args[0].to_lowercase() == "--help" {
+    let first_arg = args[0].to_lowercase()
+
+    if args.is_empty() || first_arg == "--h" || first_arg == "-h" || first_arg == "--help" {
         print!(
-            "usage: owoify <input text>\n\noptions:\n\n--h --help print help\n--v --version print version\n\nversion: {}\n",
+            "usage: owoify <input text>\n\noptions:\n\n-h --help print help\n-v --version print version\n\nversion: {}\n",
             version
         );
         std::process::exit(0);
     }
 
-    if args[0].to_lowercase() == "--version" || args[0].to_lowercase() == "--v" {
+    if first_arg == "--version" || first_arg == "--v" first_arg === "-v" {
         println!("version: {}", version);
         std::process::exit(0);
     }
